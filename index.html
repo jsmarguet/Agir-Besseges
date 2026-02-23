@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agir pour Bessèges</title>
+</head>
+<body>
+
 <div id="apb">
   <nav class="nav">
     <a class="logo" href="#hero"><span class="mark">A</span>Agir pour Bessèges</a>
@@ -385,10 +394,12 @@
   </style>
 
   <script>
-    window.Webflow=window.Webflow||[];
-    window.Webflow.push(function(){
-      const root=document.getElementById("apb"); if(!root) return;
-      const $=(s,e=root)=>e.querySelector(s), $$=(s,e=root)=>e.querySelectorAll(s);
+  (() => {
+    const init = () => {
+      const root = document.getElementById("apb"); if(!root) return;
+      const $  = (s,e=root)=>e.querySelector(s);
+      const $$ = (s,e=root)=>e.querySelectorAll(s);
+
       const CDN="https://cdn.prod.website-files.com/699af2c511f086a89294716f/";
       const U=(s)=>s&&s.startsWith("http")?s:CDN+s;
 
@@ -404,7 +415,6 @@
         {axe:"Axe 06",titre:"🎭 Culture et associations",actions:[["Comité des fêtes","Création d’un comité des fêtes dynamique."],["Lieu culturel","Création d’un lieu culturel dédié aux résidences d’artistes, en partenariat avec les acteurs locaux (Association culturelles locales, Maison de l’eau et le Cratère)."],["Patrimoine","Valorisation de notre patrimoine minier, industriel, culturel (circuit touristique) et de notre médiathèque."],["Associatif","Accompagnement et développement des associations Bességeoises et facilitation des initiatives (soutien logistique, financier)."],["Animaux","Mise en place d’une réelle politique en faveur de la cause animale."]],cit:"« Notre ambition est de faire de Bessèges une cité d’art et de culture pour tous, avec vous artistes, associations, Bességeois ! »"}
       ];
 
-      // (Important) Ici tu gardes EXACTEMENT tes contenus/phrases : j’ai juste raccourci les URLs via U()
       const candData=[
         {i:"ML",photo:U("699b3a5430ef666420335817_Christine-Roux-photo-1.png"),nom:"Christine Roux",pos:"N°1 · Tête de liste",met:"Rédacteur principal · Conseil départemental",bio:"Native de Bessèges, j'ai fait ma scolarité à l'école primaire du Petit Villard, puis au collège Le Castellas. Mon expérience, en tant que conseillère municipale et adjointe, m'a permis de découvrir et d'apprécier la fonction d'élu.",tags:["Développement durable","Modernisation","Relations-intercommunales","Sociétal","Proximité","Territoire","Vivre-ensemble","Finances"],cit:"« En cette période marquée par l'incertitude politique, financière, institutionnelle, je suis déterminée à incarner la commune en portant des projets novateurs, en servant l'intérêt général et en protégeant nos valeurs. »"},
         {i:"JM",photo:U("699b8a0f0e2bae70a7af8a86_Jacques-molle.png"),nom:"Jacques Molle",pos:"N°2 de liste",met:"Retraité PTT",bio:"Investi depuis toujours dans l'espace public et associatif, mon guide reste la défense de l'humain, le développement des services publics et du tissu économique.",tags:["Culture","Attractivité","Territoire","Patrimoine"],cit:"« Né à Bessèges, je souhaite continuer à servir ma ville, ses habitants pour un avenir meilleur avec un changement significatif dans le rapport à la population. »"},
@@ -419,7 +429,7 @@
         {i:"AB",photo:U("699b8a0f29711fc9d3de90fa_Alice-bonnefoy.png"),nom:"Alice Bonnefoy",pos:"N°11 de liste",met:"Infirmière",bio:"Petite enfance et écoles : qualité, projets, partenariats.",tags:["Santé","Éducation","Enfance","Humanitaire"],cit:"« Les premières années comptent : investissons juste. »"},
         {i:"JL",photo:U("699b8a0fed4e3d0beac018bf_Julien-lobier.png"),nom:"Julien Lobier",pos:"N°12 de liste",met:"Agent de La Poste",bio:"Rénovation énergétique : sobriété, efficacité, opportunités.",tags:["Sport","Festivités","Tourisme","Associations"],cit:"« La transition est une chance économique. »"},
         {i:"CS",photo:U("699b96a527c5b16cd42e32a3_Christine-salavert.png"),nom:"Christine Salavert",pos:"N°13 de liste",met:"Responsable chez Amaelles",bio:"Grand âge et aidants : dignité, accessibilité, services utiles.",tags:["Social","Culture","Santé","Éducation"],cit:"« Prendre soin des plus fragiles : notre boussole. »"},
-        {i:"AT",photo:U("699b8a0f5507b105f2ff74c4_Antonio-Trizzulla.png"),nom:"Antonio Trizzullo",pos:"N°14 de liste",met:"Retraité Total Energies",bio:"Culture et patrimoine : cohésion, attractivité, fierté locale.",tags:["Sport","Jeunesse","Entreprise","Agriculture"],cit:"« Notre histoire est une force pour demain. »"},
+        {i:"AT",photo:U("699b8a0f5507b105f2ff74c4_Antonio-Trizzulla.png"),nom:"Antonio Trizzulla",pos:"N°14 de liste",met:"Retraité Total Energies",bio:"Culture et patrimoine : cohésion, attractivité, fierté locale.",tags:["Sport","Jeunesse","Entreprise","Agriculture"],cit:"« Notre histoire est une force pour demain. »"},
         {i:"CSt",photo:U("699b8a106e5d9dcd68b9ea9c_Catherine-steckiw.png"),nom:"Catherine Steckiw",pos:"N°15 de liste",met:"Infirmière Cadre de Santé",bio:"Commune plus accessible : communication claire, outils modernes.",tags:["Santé","Tourisme","Dynamisme","Traditions"],cit:"« Une mairie moderne informe et consulte simplement. »"},
         {i:"JC",photo:U("699b8a0ff84568719c3d8e25_Julien-carrier.png"),nom:"Julien Carrier",pos:"N°16 de liste",met:"Etudiant en Notariat",bio:"Accompagnement concret : aides, CCAS, besoins du terrain.",tags:["Urbanisme","Développement durable","Logement","Nouvelles technologies"],cit:"« La solidarité se construit au quotidien. »"},
         {i:"JP",photo:U("699b8a0fa738d35f7082c9b1_Jannick-polo.png"),nom:"Jannick Polo",pos:"N°17 de liste",met:"Enseignante de Théâtre",bio:"Sécurité et infrastructures : efficacité, service, prévention.",tags:["Social","Écoles","Culture","Écologie"],cit:"« Améliorer le quotidien, protéger les habitants. »"},
@@ -510,6 +520,13 @@
           window.scrollTo({top:el.getBoundingClientRect().top+pageYOffset-64,behavior:"smooth"});
         });
       });
-    });
+    };
+
+    if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
   </script>
 </div>
+
+</body>
+</html>
