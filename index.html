@@ -128,7 +128,7 @@
 
     <div class="gridC" id="candGrid">
       <div class="cand tete" tabindex="0" role="button" data-cand="0">
-        <div class="av big"><img ssrc="assets/img/christine-roux-photo-1.png" alt="Christine Roux"></div>
+        <div class="av big"><img src="assets/img/christine-roux-photo-1.png" alt="Christine Roux"></div>
         <div>
           <p class="cn w">Christine Roux</p>
           <p class="cd w" style="color:white">Rédacteur principal au Conseil départemental du Gard</p>
@@ -426,12 +426,6 @@
       const root = document.getElementById("apb"); if(!root) return;
       const $  = (s,e=root)=>e.querySelector(s);
       const $$ = (s,e=root)=>e.querySelectorAll(s);
-
-      const CDN="https://cdn.prod.website-files.com/699af2c511f086a89294716f/";
-      const U=(s)=>s&&s.startsWith("http")?s:CDN+s;
-
-      // hydrate images
-      $$("img[data-f]").forEach(img=>img.src=U(img.getAttribute("data-f")));
 
       const progData=[
         {axe:"Axe 01",titre:"🌿 Propreté",actions:[["Nettoyage quotidien","Nettoyage quotidien de Bessèges par les employés avec du matériel adapté."],["Dépôts sauvages","Lutte contre les dépôts sauvages en permettant à tous d'évacuer facilement leurs ordures."],["Espaces verts","Entretien et mise en valeur des espaces verts (débrousaillage, fleurissement)."]],cit:"« Nous attacherons une attention particulière à la propreté de la ville, aux espaces publics afin de vivre dans un environnement respecté où il fait bon vivre, et dont nous sommes tous fiers. »"},
