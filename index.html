@@ -372,9 +372,34 @@
     .mpos{font-size:.65rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75)}
     .mname{font-size:1.25rem;font-weight:900;line-height:1.15}
     .mjob{font-family:ui-serif,Georgia,serif;font-style:italic;color:rgba(255,255,255,.88);margin-top:0.5rem}
-    .x{position:absolute;top:1rem;right:1rem;width:43px;height:43px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:rgba(255,255,255,.18);color:#fff}
+    .x{
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:0;
+    cursor:pointer;
+    display:grid;
+    place-items:center;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    font-size:28px;
+    line-height:1;
+    font-weight:900;
+    }
     .x:hover{background:rgba(255,255,255,.32)}
-    .mb{padding:1.4rem 1.6rem;max-height:14rem}
+    .x.light{
+      background:var(--f2);
+      border:1px solid var(--b);
+      color:var(--t2);
+      font-size:28px;   
+      line-height:1;
+      font-weight:900;
+      }
+    .x.light:hover{background:var(--o1);color:#fff;border-color:var(--o1)}
+    .mb{padding:1.4rem 1.6rem;max-height:16rem}
     .ms{margin-bottom:1.1rem}
     .mst{font-size:.65rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--o1);margin-bottom:.55rem;display:flex;gap:.5rem;align-items:center}
     .mst:after{content:"";flex:1;height:1px;background:var(--b)}
@@ -383,8 +408,6 @@
     .tags span{background:var(--f2);border:1px solid var(--b);border-radius:999px;padding:.25rem .75rem;font-size:.75rem;font-weight:800;color:var(--t2)}
     .q{background:var(--f2);border-radius:12px;padding:1rem 1.1rem;border-left:3px solid var(--o2);font-family:ui-serif,Georgia,serif;font-style:italic;color:var(--t2);line-height:1.7}
     .ph{background:var(--w);border-bottom:1px solid var(--b);padding:1.2rem 1.5rem;border-radius:16px 16px 0 0;position:relative;display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
-    .x.light{background:var(--f2);border:1px solid var(--b);color:var(--t2)}
-    .x.light:hover{background:var(--o1);color:#fff;border-color:var(--o1)}
     .pax{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2)}
     .pt{font-size:1.35rem;font-weight:1000;letter-spacing:-.02em}
     .pb{padding:1.2rem 1.6rem}
