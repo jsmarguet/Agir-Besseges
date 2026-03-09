@@ -60,6 +60,7 @@
         <a class="btn o" data-pdf href="#">Voir la présentation</a>
       </div>
     </div>
+
     <div class="hr">
       <div class="hcard">
         <small>Priorités du mandat</small>
@@ -193,7 +194,7 @@
     <p>Site réalisé à des fins électorales</p>
   </footer>
 
-  <!-- MODALE CANDIDAT -->
+  <!-- ── MODALE CANDIDAT ── -->
   <div class="ov" id="candModal" aria-modal="true" role="dialog">
     <div class="modal">
       <div class="mh">
@@ -213,7 +214,7 @@
     </div>
   </div>
 
-  <!-- MODALE PROGRAMME -->
+  <!-- ── MODALE PROGRAMME ── -->
   <div class="ov" id="progModal" aria-modal="true" role="dialog">
     <div class="modal wide">
       <div class="ph">
@@ -229,7 +230,7 @@
     </div>
   </div>
 
-  <!-- MODALE PHOTO ÉQUIPE -->
+  <!-- ── MODALE PHOTO ÉQUIPE ── -->
   <div class="ov" id="teamModal" aria-modal="true" role="dialog" aria-label="Photo équipe">
     <div class="modal wide teamm">
       <button class="x light" data-close aria-label="Fermer">✕</button>
@@ -237,27 +238,34 @@
     </div>
   </div>
 
-  <!-- MODALE CAROUSEL PRÉSENTATION -->
+  <!-- ── MODALE CAROUSEL PRÉSENTATION ── -->
   <div class="ov" id="pdfModal" aria-modal="true" role="dialog" aria-label="Présentation">
     <div class="modal wide pdfm">
-      <div class="ph">
+
+      <!-- En-tête -->
+      <div class="ph car-ph">
         <div>
           <div class="pt">Agir pour Bessèges · 2026</div>
         </div>
-        <div style="display:flex;gap:.6rem;align-items:center;flex-shrink:0">
-          <a class="btn" href="assets/pdf/presentation-agir-besseges.pdf" download style="font-size:.65rem;padding:.5rem 1rem;color:#fff">⬇ Télécharger</a>
+        <div class="car-ph-actions">
+          <a class="btn car-dl" href="assets/pdf/presentation-agir-besseges.pdf" download>⬇ Télécharger</a>
           <button class="x light" data-close aria-label="Fermer" style="position:static;width:44px;height:44px;flex-shrink:0">✕</button>
         </div>
       </div>
-      <div class="pax-modal">Présentation · <span id="slideCount">1 / 26</span></div>
+
+      <!-- Zone image + flèches -->
+      <div class="pax" style="padding-left:2rem;margin-top:1rem;margin-bottom:1rem">Présentation · <span id="slideCount">1 / 26</span></div>
       <div class="car-wrap">
-        <button class="car-btn" id="carPrev" aria-label="Page précédente">‹</button>
+        <button class="car-btn" id="carPrev" aria-label="Page précédente" disabled>‹</button>
         <div class="car-stage">
           <img class="car-img" id="carImg" src="" alt="Présentation page 1" draggable="false">
         </div>
         <button class="car-btn" id="carNext" aria-label="Page suivante">›</button>
       </div>
+
+      <!-- Points de navigation -->
       <div class="car-dots" id="carDots"></div>
+
     </div>
   </div>
 
@@ -372,6 +380,8 @@
     .fl{display:flex;align-items:center;gap:.6rem;font-weight:1000}
     .fl i{color:var(--o2);font-style:normal}
     .foot p{margin:0;color:rgba(255,255,255,.45);font-size:.72rem}
+
+    /* ── MODALES COMMUNES ── */
     .ov{position:fixed;inset:0;z-index:999;background:rgba(28,20,10,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.2rem;opacity:0;pointer-events:none;transition:.2s}
     .ov.open{opacity:1;pointer-events:auto}
     .modal{background:var(--w);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 32px 80px rgba(0,0,0,.22),0 0 0 1px var(--b);transform:translateY(16px) scale(.98);transition:.2s}
@@ -395,9 +405,8 @@
     .tags{display:flex;flex-wrap:wrap;gap:.45rem}
     .tags span{background:var(--f2);border:1px solid var(--b);border-radius:999px;padding:.25rem .75rem;font-size:.75rem;font-weight:800;color:var(--t2)}
     .q{background:var(--f2);border-radius:12px;padding:1rem 1.1rem;border-left:3px solid var(--o2);font-family:ui-serif,Georgia,serif;font-style:italic;color:var(--t2);line-height:1.7}
-    .ph{background:var(--w);border-bottom:1px solid var(--b);padding:1.2rem 1.5rem;border-radius:16px 16px 0 0;display:flex;justify-content:space-between;gap:1rem;align-items:center}
-    .pax{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2);}
-    .pax-modal{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2);padding-left: 2rem;margin-top: 1rem;margin-bottom: 1rem;}
+    .ph{background:var(--w);border-bottom:1px solid var(--b);padding:1.2rem 1.5rem;border-radius:16px 16px 0 0;position:relative;display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+    .pax{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2)}
     .pt{font-size:1.35rem;font-weight:1000;letter-spacing:-.02em}
     .pb{padding:1.2rem 1.6rem}
     #pactions .act{display:flex;gap:.8rem;align-items:flex-start;background:var(--f2);border-radius:12px;padding:.85rem 1rem;border-left:3px solid var(--o1);margin:.55rem 0}
@@ -405,19 +414,25 @@
     #pactions b{display:block;color:var(--t)}
     .modal.teamm{position:relative;padding:14px;background:rgba(255,255,255,.95)}
     .modal.teamm img{display:block;width:min(100%);max-height:82vh;object-fit:contain;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.18)}
+
     /* ── CAROUSEL ── */
     .modal.pdfm{max-width:900px;display:flex;flex-direction:column;max-height:92vh;overflow:hidden}
-    .modal.pdfm .ph{flex-shrink:0;border-radius:16px 16px 0 0;position:relative}
+    .car-ph{align-items:center;flex-shrink:0;border-radius:16px 16px 0 0}
+    .car-ph-actions{display:flex;gap:.6rem;align-items:center;flex-shrink:0}
+    .car-dl{font-size:.65rem;padding:.5rem 1rem;color:#fff !important}
+    .car-dl:hover{transform:translateY(-1px)}
     .car-wrap{flex:1;min-height:0;display:flex;align-items:center;background:var(--f)}
     .car-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:.8rem 0;overflow:hidden}
-    .car-img{max-width:100%;max-height:66vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:block;user-select:none;transition:opacity .15s ease}
+    .car-img{max-width:100%;max-height:64vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:block;user-select:none;transition:opacity .15s ease}
     .car-img.fade{opacity:0}
     .car-btn{flex-shrink:0;width:48px;height:48px;border:none;background:transparent;cursor:pointer;font-size:2.2rem;color:var(--t3);display:grid;place-items:center;transition:color .15s;padding:0;line-height:1}
     .car-btn:hover{color:var(--o1)}
     .car-btn:disabled{opacity:.2;cursor:default;pointer-events:none}
     .car-dots{display:flex;justify-content:center;align-items:center;gap:5px;padding:.65rem 1rem;background:var(--f);border-top:1px solid var(--b);flex-wrap:wrap;border-radius:0 0 16px 16px;flex-shrink:0}
     .car-dot{width:7px;height:7px;border-radius:50%;background:var(--b);border:none;cursor:pointer;padding:0;transition:.15s;flex-shrink:0}
-    .car-dot.on{background:var(--o1);transform:scale(1.35)}
+    .car-dot.on{background:var(--o1);transform:scale(1.4)}
+
+    /* ── RESPONSIVE ── */
     @media(max-width:960px){
       .hero{grid-template-columns:1fr}
       .hr{display:flex;padding:26px 5vw 48px}
@@ -434,7 +449,7 @@
       #progModal .modal.wide{max-height:85vh;display:flex;flex-direction:column}
       #progModal .ph{flex-shrink:0}
       #progModal .pb{overflow-y:auto;flex:1;padding-bottom:20px}
-      .car-img{max-height:55vh}
+      .car-img{max-height:52vh}
     }
     @media(max-width:600px){
       .links{display:none}
@@ -448,9 +463,10 @@
       .row>div{min-width:0}
       .row b,.row small{white-space:normal}
       .row b{overflow-wrap:anywhere;word-break:break-word}
-      .car-img{max-height:48vh}
+      .car-img{max-height:44vh}
       .car-btn{width:36px;font-size:1.8rem}
       .car-dot{width:6px;height:6px}
+      .car-dl{display:none}
     }
   </style>
 
@@ -461,6 +477,7 @@
       const $  = (s,e=root)=>e.querySelector(s);
       const $$ = (s,e=root)=>e.querySelectorAll(s);
 
+      // ── DONNÉES PROGRAMME ──
       const progData=[
         {axe:"Axe 01",titre:"🌿 Propreté",actions:[["Nettoyage quotidien","Nettoyage quotidien de Bessèges par les employés avec du matériel adapté."],["Dépôts sauvages","Lutte contre les dépôts sauvages en permettant à tous d'évacuer facilement leurs ordures."],["Espaces verts","Entretien et mise en valeur des espaces verts (débroussaillage, fleurissement)."]],cit:"« Nous attacherons une attention particulière à la propreté de la ville, aux espaces publics afin de vivre dans un environnement respecté où il fait bon vivre, et dont nous sommes tous fiers. »"},
         {axe:"Axe 02",titre:"🚨 Sécurité et Politique",actions:[["Police Municipale","Création d'un poste supplémentaire à la Police Municipale présent sur le terrain et à la sortie des établissements scolaires."],["Sécurité","Mise en place de nouvelles caméras de vidéo protection."],["Routes","Limitation de la vitesse en ville."],["Bien-être","Création d'une voie verte entre l'espace Frizon et la place de la Révolution en partenariat avec la Communauté de Communes Cèze Cévènnes afin de sécuriser l'accès à l'aire de jeux famille."],["Citoyenneté","Facilitation à la création de comités de quartiers et instauration d'un conseil consultatif."]],cit:"« Le Maire a le devoir d'exercer ses fonctions Régaliennes, en matière de maintien de l'ordre public, de protection des administrés et de respect de la loi !»"},
@@ -470,6 +487,7 @@
         {axe:"Axe 06",titre:"🎭 Culture et<br>associations",actions:[["Comité des fêtes","Création d'un comité des fêtes dynamique."],["Lieu culturel","Création d'un lieu culturel dédié aux résidences d'artistes, en partenariat avec les acteurs locaux (Associations culturelles locales, Maison de l'eau et le Cratère)."],["Patrimoine","Valorisation de notre patrimoine minier, industriel, culturel (circuit touristique) et de notre médiathèque."],["Associatif","Accompagnement et développement des associations Bességeoises et facilitation des initiatives (soutien logistique, financier)."],["Animaux","Mise en place d'une réelle politique en faveur de la cause animale."]],cit:"« Notre ambition est de faire de Bessèges une cité d'art et de culture pour tous, avec vous artistes, associations, Bességeois ! »"}
       ];
 
+      // ── DONNÉES CANDIDATS ──
       const candData=[
         {i:"ML",photo:"/assets/img/christine-roux-photo-1.png",nom:"Christine Roux",pos:"N°1 · Tête de liste",met:"Rédacteur principal · Conseil départemental",bio:"Native de Bessèges, j'ai fait ma scolarité à l'école primaire du Petit Villard, puis au collège Le Castellas. Mon expérience, en tant que conseillère municipale et adjointe, m'a permis de découvrir et d'apprécier la fonction d'élu.",tags:["Développement durable","Modernisation","Relations-intercommunales","Sociétal","Proximité","Territoire","Vivre-ensemble","Finances"],cit:"« En cette période marquée par l'incertitude politique, financière, institutionnelle, je suis déterminée à incarner la commune en portant des projets novateurs, en servant l'intérêt général et en protégeant nos valeurs. »"},
         {i:"JM",photo:"/assets/img/jacques-molle.png",nom:"Jacques Molle",pos:"N°2 de liste",met:"Retraité PTT",bio:"Investi depuis toujours dans l'espace public et associatif, mon guide reste la défense de l'humain, le développement des services publics et du tissu économique.",tags:["Culture","Attractivité","Territoire","Patrimoine"],cit:"« Né à Bessèges, je souhaite continuer à servir ma ville, ses habitants pour un avenir meilleur avec un changement significatif dans le rapport à la population. »"},
@@ -498,161 +516,220 @@
         {i:"XS",photo:"/assets/img/xenia-swinzow.png",nom:"Xenia Swinzow",pos:"N°25 de liste",met:"Chef d'entreprise stratégie commerciale",bio:"J'ai appris à aimer Bessèges et les Cévennes. Engagée dans le milieu humanitaire et associatif, j'ai fondé l'association de protection animale Barricat's. J'y consacre une grande partie de mon temps afin d'améliorer le quotidien des animaux.",tags:["Associations","Cause animale","Emploi"],cit:"« Je partage la vision et les orientations de Christine Roux, aussi je souhaite m'investir pleinement avec l'équipe afin de redonner un nouvel élan à notre commune. »"}
       ];
 
-      // ── MODALES ──
-      const candModal=$("#candModal"), progModal=$("#progModal"), teamModal=$("#teamModal"), teamModalImg=$("#teamModalImg"), pdfModal=$("#pdfModal");
-      const lock=(on)=>document.body.style.overflow=on?"hidden":"";
-      const openModal=(ov)=>{ov.classList.add("open");lock(true)};
-      const closeAll=()=>{
-        [candModal,progModal,teamModal,pdfModal].forEach(m=>m.classList.remove("open"));
+      // ── RÉFÉRENCES DOM ──
+      const candModal    = $("#candModal");
+      const progModal    = $("#progModal");
+      const teamModal    = $("#teamModal");
+      const teamModalImg = $("#teamModalImg");
+      const pdfModal     = $("#pdfModal");
+
+      // ── HELPERS MODALES ──
+      const lock = (on) => document.body.style.overflow = on ? "hidden" : "";
+      const openModal = (ov) => { ov.classList.add("open"); lock(true); };
+      const closeAll  = () => {
+        [candModal, progModal, teamModal, pdfModal].forEach(m => m.classList.remove("open"));
         lock(false);
       };
 
-      function openCand(id){
-        const c=candData[id]; if(!c) return;
-        $("#mav").innerHTML=c.photo?`<img src="${c.photo}" alt="${c.nom}">`:c.i;
-        $("#mpos").textContent=c.pos;
-        $("#mname").textContent=c.nom;
-        $("#mjob").textContent=c.met;
-        $("#mbio").textContent=c.bio;
-        $("#mquote").textContent=c.cit;
-        $("#mtags").innerHTML=(c.tags||[]).map((t,i)=>`<span ${i?"":`style="background:rgba(232,92,0,.08);border-color:rgba(232,92,0,.25);color:var(--o5)"`}>${t}</span>`).join("");
+      // ── OUVRIR CANDIDAT ──
+      function openCand(id) {
+        const c = candData[id]; if (!c) return;
+        $("#mav").innerHTML = c.photo ? `<img src="${c.photo}" alt="${c.nom}">` : c.i;
+        $("#mpos").textContent   = c.pos;
+        $("#mname").textContent  = c.nom;
+        $("#mjob").textContent   = c.met;
+        $("#mbio").textContent   = c.bio;
+        $("#mquote").textContent = c.cit;
+        $("#mtags").innerHTML = (c.tags||[]).map((t,i) =>
+          `<span ${i ? "" : `style="background:rgba(232,92,0,.08);border-color:rgba(232,92,0,.25);color:var(--o5)"`}>${t}</span>`
+        ).join("");
         openModal(candModal);
       }
 
-      function openProg(id){
-        const a=progData[id]; if(!a) return;
-        $("#pax-modal").textContent=a.axe;
-        $("#pt").innerHTML=a.titre;
-        $("#pcit").textContent=a.cit;
-        $("#pactions").innerHTML=(a.actions||[]).map((x,i)=>`<div class="act"><div class="idx">${String(i+1).padStart(2,"0")}</div><div><b>${x[0]}</b>${x[1]}</div></div>`).join("");
+      // ── OUVRIR PROGRAMME ──
+      function openProg(id) {
+        const a = progData[id]; if (!a) return;
+        $("#pax").textContent = a.axe;
+        $("#pt").innerHTML    = a.titre;
+        $("#pcit").textContent = a.cit;
+        $("#pactions").innerHTML = (a.actions||[]).map((x,i) =>
+          `<div class="act"><div class="idx">${String(i+1).padStart(2,"0")}</div><div><b>${x[0]}</b>${x[1]}</div></div>`
+        ).join("");
         openModal(progModal);
       }
 
-      function openTeam(){
-        const img=$(".team img"); if(!img) return;
-        teamModalImg.src=img.currentSrc||img.src;
-        teamModalImg.alt=img.alt||"Photo équipe";
+      // ── OUVRIR PHOTO ÉQUIPE ──
+      function openTeam() {
+        const img = $(".team img"); if (!img) return;
+        teamModalImg.src = img.currentSrc || img.src;
+        teamModalImg.alt = img.alt || "Photo équipe";
         openModal(teamModal);
       }
 
+      // ────────────────────────────────────────────
       // ── CAROUSEL ──
-      const TOTAL=26;
-      const BASE="assets/pdf/presentation-agir-besseges_pages-to-jpg-";
-      let curSlide=1;
+      // ────────────────────────────────────────────
+      const TOTAL = 26;
+      const BASE  = "assets/pdf/presentation-agir-besseges_pages-to-jpg-";
+      let curSlide = 1;
 
-      function pad(n){return String(n).padStart(4,"0")}
-      function src(n){return BASE+pad(n)+".jpg"}
+      const pad    = (n) => String(n).padStart(4, "0");
+      const imgSrc = (n) => BASE + pad(n) + ".jpg";
 
-      function buildDots(){
-        const dots=$("#carDots");
-        dots.innerHTML="";
-        for(let i=1;i<=TOTAL;i++){
-          const d=document.createElement("button");
-          d.className="car-dot"+(i===1?" on":"");
-          d.setAttribute("aria-label","Page "+i);
-          d.dataset.slide=i;
+      // Construit les 26 points de navigation
+      function buildDots() {
+        const dots = $("#carDots");
+        dots.innerHTML = "";
+        for (let i = 1; i <= TOTAL; i++) {
+          const d = document.createElement("button");
+          d.className   = "car-dot" + (i === 1 ? " on" : "");
+          d.setAttribute("aria-label", "Page " + i);
+          d.dataset.slide = i;
           dots.appendChild(d);
         }
       }
 
-      function goTo(n){
-        n=Math.max(1,Math.min(TOTAL,n));
-        if(n===curSlide) return;
-        curSlide=n;
-        const img=$("#carImg");
+      // Va à la page n avec transition fade
+      function goTo(n) {
+        n = Math.max(1, Math.min(TOTAL, n));
+        if (n === curSlide) return;
+        curSlide = n;
+
+        const img   = $("#carImg");
+        const count = $("#slideCount");
+        const prev  = $("#carPrev");
+        const next  = $("#carNext");
+
+        // Fade out → change src → fade in
         img.classList.add("fade");
-        setTimeout(()=>{
-          img.src=src(n);
-          img.alt="Présentation page "+n;
+        setTimeout(() => {
+          img.src = imgSrc(n);
+          img.alt = "Présentation page " + n;
           img.classList.remove("fade");
-        },150);
-        $("#slideCount").textContent=n+" / "+TOTAL;
-        $("#carPrev").disabled=(n===1);
-        $("#carNext").disabled=(n===TOTAL);
-        pdfModal.querySelectorAll(".car-dot").forEach((d,i)=>d.classList.toggle("on",i+1===n));
-        // Précharge la page suivante
-        if(n<TOTAL){const p=new Image();p.src=src(n+1);}
+        }, 150);
+
+        count.textContent = n + " / " + TOTAL;
+        prev.disabled = (n === 1);
+        next.disabled = (n === TOTAL);
+
+        // Mettre à jour le point actif
+        pdfModal.querySelectorAll(".car-dot").forEach((d, i) =>
+          d.classList.toggle("on", i + 1 === n)
+        );
+
+        // Précharger la page suivante
+        if (n < TOTAL) { const p = new Image(); p.src = imgSrc(n + 1); }
       }
 
-      function openPdf(){
+      // Ouvre le carousel depuis la page 1
+      function openPdf() {
         buildDots();
-        curSlide=1;
-        const img=$("#carImg");
-        img.src=src(1);
-        img.alt="Présentation page 1";
-        $("#slideCount").textContent="1 / "+TOTAL;
-        $("#carPrev").disabled=true;
-        $("#carNext").disabled=false;
-        // Précharge les 3 premières images
-        for(let i=2;i<=Math.min(4,TOTAL);i++){const p=new Image();p.src=src(i);}
+        curSlide = 1;
+        const img   = $("#carImg");
+        const count = $("#slideCount");
+        const prev  = $("#carPrev");
+        const next  = $("#carNext");
+
+        img.src           = imgSrc(1);
+        img.alt           = "Présentation page 1";
+        count.textContent = "1 / " + TOTAL;
+        prev.disabled     = true;
+        next.disabled     = false;
+
+        // Préchargement des 4 premières pages
+        for (let i = 2; i <= Math.min(4, TOTAL); i++) {
+          const p = new Image(); p.src = imgSrc(i);
+        }
         openModal(pdfModal);
       }
 
-      // Clics dans la modale carousel (délégation)
-      pdfModal.addEventListener("click",(e)=>{
-        if(e.target.id==="carPrev"){e.stopPropagation();goTo(curSlide-1);return;}
-        if(e.target.id==="carNext"){e.stopPropagation();goTo(curSlide+1);return;}
-        const dot=e.target.closest(".car-dot");
-        if(dot){e.stopPropagation();goTo(+dot.dataset.slide);return;}
+      // Délégation : clics sur prev / next / dots DANS la modale carousel
+      pdfModal.addEventListener("click", (e) => {
+        if (e.target.id === "carPrev") { e.stopPropagation(); goTo(curSlide - 1); return; }
+        if (e.target.id === "carNext") { e.stopPropagation(); goTo(curSlide + 1); return; }
+        const dot = e.target.closest(".car-dot");
+        if (dot) { e.stopPropagation(); goTo(+dot.dataset.slide); return; }
       });
 
-      // Clavier dans le carousel
-      pdfModal.addEventListener("keydown",(e)=>{
-        if(e.key==="ArrowRight"||e.key==="ArrowDown"){e.preventDefault();goTo(curSlide+1);}
-        else if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();goTo(curSlide-1);}
+      // Navigation clavier (flèches) dans le carousel
+      pdfModal.addEventListener("keydown", (e) => {
+        if (!pdfModal.classList.contains("open")) return;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown")  { e.preventDefault(); goTo(curSlide + 1); }
+        if (e.key === "ArrowLeft"  || e.key === "ArrowUp")    { e.preventDefault(); goTo(curSlide - 1); }
       });
 
-      // Swipe tactile
-      let touchX=0;
-      pdfModal.addEventListener("touchstart",(e)=>{touchX=e.touches[0].clientX;},{passive:true});
-      pdfModal.addEventListener("touchend",(e)=>{
-        const dx=e.changedTouches[0].clientX-touchX;
-        if(Math.abs(dx)>40) goTo(dx<0?curSlide+1:curSlide-1);
-      },{passive:true});
+      // Swipe tactile (mobile / tablette)
+      let touchStartX = 0;
+      pdfModal.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      pdfModal.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) goTo(dx < 0 ? curSlide + 1 : curSlide - 1);
+      }, { passive: true });
 
+      // ────────────────────────────────────────────
       // ── ÉVÉNEMENTS GLOBAUX ──
-      root.addEventListener("click",(e)=>{
-        if(e.target.closest("[data-close]")||e.target===candModal||e.target===progModal||e.target===teamModal||e.target===pdfModal) return closeAll();
-        if(e.target.closest(".team img")) return openTeam();
-        if(e.target.closest("[data-pdf]")){e.preventDefault(); return openPdf();}
-        const pc=e.target.closest("[data-prog]"); if(pc) return openProg(+pc.dataset.prog);
-        const cc=e.target.closest("[data-cand]"); if(cc) return openCand(+cc.dataset.cand);
+      // ────────────────────────────────────────────
+      root.addEventListener("click", (e) => {
+        // Fermeture modales
+        if (e.target.closest("[data-close]") || e.target === candModal || e.target === progModal || e.target === teamModal || e.target === pdfModal)
+          return closeAll();
+        // Photo équipe
+        if (e.target.closest(".team img")) return openTeam();
+        // Bouton présentation (data-pdf)
+        if (e.target.closest("[data-pdf]")) { e.preventDefault(); return openPdf(); }
+        // Axes programme
+        const pc = e.target.closest("[data-prog]"); if (pc) return openProg(+pc.dataset.prog);
+        // Candidats
+        const cc = e.target.closest("[data-cand]"); if (cc) return openCand(+cc.dataset.cand);
       });
 
-      root.addEventListener("keydown",(e)=>{
-        if(e.key==="Escape") return closeAll();
-        if(e.key!=="Enter"&&e.key!==" ") return;
-        const pc=e.target.closest("[data-prog]"); if(pc){e.preventDefault(); return openProg(+pc.dataset.prog);}
-        const cc=e.target.closest("[data-cand]"); if(cc){e.preventDefault(); return openCand(+cc.dataset.cand);}
+      root.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") return closeAll();
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const pc = e.target.closest("[data-prog]"); if (pc) { e.preventDefault(); return openProg(+pc.dataset.prog); }
+        const cc = e.target.closest("[data-cand]"); if (cc) { e.preventDefault(); return openCand(+cc.dataset.cand); }
       });
 
       // ── MENU MOBILE ──
-      const burger=$(".burger"), mnav=$("#mnav"), mnavOv=$("#mnavOv"), mnavClose=$(".mnav-close"), mnavLinks=$$(".mnav a");
-      const setExp=(on)=>{burger&&burger.setAttribute("aria-expanded",on?"true":"false");mnavOv&&mnavOv.setAttribute("aria-hidden",on?"false":"true");};
-      const menu=(on)=>{
-        if(!mnav||!mnavOv||!burger) return;
-        mnav.classList.toggle("open",on);
-        mnavOv.classList.toggle("open",on);
-        setExp(on); lock(on);
+      const burger    = $(".burger");
+      const mnav      = $("#mnav");
+      const mnavOv    = $("#mnavOv");
+      const mnavClose = $(".mnav-close");
+      const mnavLinks = $$(".mnav a");
+
+      const setExpanded = (on) => {
+        burger && burger.setAttribute("aria-expanded", on ? "true" : "false");
+        mnavOv && mnavOv.setAttribute("aria-hidden", on ? "false" : "true");
       };
-      burger&&burger.addEventListener("click",()=>menu(!mnav.classList.contains("open")));
-      mnavClose&&mnavClose.addEventListener("click",()=>menu(false));
-      mnavOv&&mnavOv.addEventListener("click",()=>menu(false));
-      mnavLinks.forEach(a=>a.addEventListener("click",()=>menu(false)));
-      document.addEventListener("keydown",(e)=>{if(e.key==="Escape"&&mnav&&mnav.classList.contains("open"))menu(false);});
+      const menu = (on) => {
+        if (!mnav || !mnavOv || !burger) return;
+        mnav.classList.toggle("open", on);
+        mnavOv.classList.toggle("open", on);
+        setExpanded(on); lock(on);
+      };
+
+      burger    && burger.addEventListener("click", () => menu(!(mnav && mnav.classList.contains("open"))));
+      mnavClose && mnavClose.addEventListener("click", () => menu(false));
+      mnavOv    && mnavOv.addEventListener("click",   () => menu(false));
+      mnavLinks.forEach(a => a.addEventListener("click", () => menu(false)));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mnav && mnav.classList.contains("open")) menu(false);
+      });
 
       // ── SMOOTH SCROLL ──
-      $$('a[href^="#"]').forEach(a=>{
-        a.addEventListener("click",(e)=>{
-          const href=a.getAttribute("href"); if(!href||href==="#") return;
-          const el=$(href); if(!el) return;
+      $$('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href"); if (!href || href === "#") return;
+          const el = $(href); if (!el) return;
           e.preventDefault();
-          window.scrollTo({top:el.getBoundingClientRect().top+pageYOffset-64,behavior:"smooth"});
+          window.scrollTo({ top: el.getBoundingClientRect().top + pageYOffset - 64, behavior: "smooth" });
         });
       });
     };
 
-    if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init);
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();
   })();
   </script>
