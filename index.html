@@ -242,14 +242,14 @@
     <div class="modal wide pdfm">
       <div class="ph">
         <div>
-          <div class="pax">Présentation · <span id="slideCount">1 / 26</span></div>
           <div class="pt">Agir pour Bessèges · 2026</div>
         </div>
         <div style="display:flex;gap:.6rem;align-items:center;flex-shrink:0">
-          <a class="btn" href="assets/pdf/presentation-agir-besseges.pdf" download style="font-size:.65rem;padding:.5rem 1rem;color:#fff">⬇ PDF</a>
+          <a class="btn" href="assets/pdf/presentation-agir-besseges.pdf" download style="font-size:.65rem;padding:.5rem 1rem;color:#fff">⬇ Télécharger</a>
           <button class="x light" data-close aria-label="Fermer" style="position:static;width:44px;height:44px;flex-shrink:0">✕</button>
         </div>
       </div>
+      <div class="pax-modal">Présentation · <span id="slideCount">1 / 26</span></div>
       <div class="car-wrap">
         <button class="car-btn" id="carPrev" aria-label="Page précédente">‹</button>
         <div class="car-stage">
@@ -396,7 +396,8 @@
     .tags span{background:var(--f2);border:1px solid var(--b);border-radius:999px;padding:.25rem .75rem;font-size:.75rem;font-weight:800;color:var(--t2)}
     .q{background:var(--f2);border-radius:12px;padding:1rem 1.1rem;border-left:3px solid var(--o2);font-family:ui-serif,Georgia,serif;font-style:italic;color:var(--t2);line-height:1.7}
     .ph{background:var(--w);border-bottom:1px solid var(--b);padding:1.2rem 1.5rem;border-radius:16px 16px 0 0;display:flex;justify-content:space-between;gap:1rem;align-items:center}
-    .pax{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2)}
+    .pax{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2);}
+    .pax-modal{font-size:.65rem;font-weight:1000;letter-spacing:.2em;text-transform:uppercase;color:var(--o2);padding-left: 2rem;margin-top: 1rem;margin-bottom: 1rem;}
     .pt{font-size:1.35rem;font-weight:1000;letter-spacing:-.02em}
     .pb{padding:1.2rem 1.6rem}
     #pactions .act{display:flex;gap:.8rem;align-items:flex-start;background:var(--f2);border-radius:12px;padding:.85rem 1rem;border-left:3px solid var(--o1);margin:.55rem 0}
@@ -520,7 +521,7 @@
 
       function openProg(id){
         const a=progData[id]; if(!a) return;
-        $("#pax").textContent=a.axe;
+        $("#pax-modal").textContent=a.axe;
         $("#pt").innerHTML=a.titre;
         $("#pcit").textContent=a.cit;
         $("#pactions").innerHTML=(a.actions||[]).map((x,i)=>`<div class="act"><div class="idx">${String(i+1).padStart(2,"0")}</div><div><b>${x[0]}</b>${x[1]}</div></div>`).join("");
