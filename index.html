@@ -188,10 +188,10 @@
         <div class="lab"><i></i>Contact</div>
         <h2>Faisons bouger<br><span>Bessèges</span><br>ensemble.</h2>
         <p class="p">Réunion publique, soutien, questions : contactez-nous.</p>
-        <a class="btn" href="mailto:agir.besseges@gmail.com" style="margin-top:15px; color:white">Envoyer un message</a>
+        <a class="btn" href="/cdn-cgi/l/email-protection#6b0a0c021945090e18180e0c0e182b0c060a020745080406" style="margin-top:15px; color:white">Envoyer un message</a>
       </div>
       <div class="col">
-        <a class="row" href="mailto:agir.besseges@gmail.com"><span class="ico">✉️</span><div><small>Email</small><b>agir.besseges@gmail.com</b></div></a>
+        <a class="row" href="/cdn-cgi/l/email-protection#6a0b0d031844080f19190f0d0f192a0d070b030644090507"><span class="ico">✉️</span><div><small>Email</small><b><span class="__cf_email__" data-cfemail="f9989e908bd79b9c8a8a9c9e9c8ab99e94989095d79a9694">[email&#160;protected]</span></b></div></a>
         <div class="row"><span class="ico">📍</span><div><small>Localisation</small><b>Bessèges, Gard (30160)</b></div></div>
       </div>
     </div>
@@ -247,22 +247,27 @@
     </div>
   </div>
 
-  <!-- MODALE PDF -->
-  <div class="ov" id="pdfModal" aria-modal="true" role="dialog" aria-label="Présentation PDF">
+  <!-- MODALE CAROUSEL -->
+  <div class="ov" id="pdfModal" aria-modal="true" role="dialog" aria-label="Présentation">
     <div class="modal wide pdfm">
       <div class="ph">
         <div>
-          <div class="pax">Présentation</div>
+          <div class="pax">Présentation · <span id="slideCount">1 / 26</span></div>
           <div class="pt">Agir pour Bessèges · 2026</div>
         </div>
         <div style="display:flex;gap:.6rem;align-items:center;flex-shrink:0">
-          <a class="btn" href="assets/pdf/presentation-agir-besseges.pdf" download style="font-size:.65rem;padding:.5rem 1rem;color:#fff">⬇ Télécharger</a>
+          <a class="btn" href="assets/pdf/presentation-agir-besseges.pdf" download style="font-size:.65rem;padding:.5rem 1rem;color:#fff">⬇ PDF</a>
           <button class="x light" data-close aria-label="Fermer" style="position:static;width:44px;height:44px">✕</button>
         </div>
       </div>
-      <div class="pdf-wrap">
-        <iframe id="pdfFrame" src="" title="Présentation Agir pour Bessèges" allowfullscreen></iframe>
+      <div class="car-wrap">
+        <button class="car-btn car-prev" id="carPrev" aria-label="Page précédente">‹</button>
+        <div class="car-stage">
+          <img class="car-img" id="carImg" src="" alt="Présentation page 1" draggable="false">
+        </div>
+        <button class="car-btn car-next" id="carNext" aria-label="Page suivante">›</button>
       </div>
+      <div class="car-dots" id="carDots"></div>
     </div>
   </div>
 
@@ -412,14 +417,20 @@
     #pactions b{display:block;color:var(--t)}
     .modal.teamm{position:relative;padding:14px;background:rgba(255,255,255,.95)}
     .modal.teamm img{display:block;width:min(100%);max-height:82vh;object-fit:contain;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.18)}
-    /* PDF modal */
+    /* Carousel modal */
     .modal.pdfm{max-width:900px;display:flex;flex-direction:column;max-height:92vh;overflow:hidden}
     .modal.pdfm .ph{flex-shrink:0;border-radius:16px 16px 0 0}
-    .pdf-wrap{flex:1;min-height:0;padding:.8rem;background:var(--f)}
-    .pdf-wrap iframe{width:100%;height:100%;min-height:70vh;border:0;border-radius:10px;background:#f5f5f5;display:block}
-    .pdf-ios-msg{display:none;padding:2rem;text-align:center;color:var(--t2);line-height:1.8}
-    .pdf-ios-msg a{color:var(--o1);font-weight:900;text-decoration:underline}
-    @media(max-width:600px){.pdf-wrap iframe{min-height:55vh}}
+    .car-wrap{flex:1;min-height:0;display:flex;align-items:center;background:var(--f);position:relative}
+    .car-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:.8rem 0;overflow:hidden}
+    .car-img{max-width:100%;max-height:68vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:block;user-select:none;transition:opacity .15s}
+    .car-img.fade{opacity:0}
+    .car-btn{flex-shrink:0;width:44px;height:44px;border:none;background:transparent;cursor:pointer;font-size:2rem;color:var(--t2);display:grid;place-items:center;transition:.15s;padding:0;line-height:1}
+    .car-btn:hover{color:var(--o1)}
+    .car-btn:disabled{opacity:.2;cursor:default}
+    .car-dots{display:flex;justify-content:center;align-items:center;gap:5px;padding:.7rem;background:var(--f);border-top:1px solid var(--b);flex-wrap:wrap;border-radius:0 0 16px 16px;flex-shrink:0}
+    .car-dot{width:7px;height:7px;border-radius:50%;background:var(--b);border:none;cursor:pointer;padding:0;transition:.15s}
+    .car-dot.on{background:var(--o1);transform:scale(1.3)}
+    @media(max-width:600px){.car-img{max-height:52vh}.car-btn{width:32px;font-size:1.6rem}.car-dots{gap:4px}.car-dot{width:6px;height:6px}}
     @media (max-width:960px){
       .hero{grid-template-columns:1fr}
       .hr{display:flex;padding:26px 5vw 48px}
@@ -452,7 +463,7 @@
     }
   </style>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   (() => {
     const init = () => {
       const root = document.getElementById("apb"); if(!root) return;
@@ -497,8 +508,10 @@
       ];
 
       const candModal=$("#candModal"), progModal=$("#progModal"), teamModal=$("#teamModal"), teamModalImg=$("#teamModalImg");
-      const pdfModal=$("#pdfModal"), pdfFrame=$("#pdfFrame");
-      const PDF_SRC="assets/pdf/presentation-agir-besseges.pdf";
+      const pdfModal=$("#pdfModal");
+      const TOTAL=26;
+      const BASE="assets/pdf/presentation-agir-besseges_pages-to-jpg-";
+      let curSlide=1;
       const lock=(on)=>document.body.style.overflow=on?"hidden":"";
 
       const open=(ov)=>{ov.classList.add("open");lock(true)};
@@ -507,7 +520,6 @@
         progModal.classList.remove("open");
         teamModal.classList.remove("open");
         pdfModal.classList.remove("open");
-        pdfFrame.src="";
         lock(false);
       };
 
@@ -540,21 +552,71 @@
         open(teamModal);
       }
 
-      function openPdf(){
-        // Détection iOS — l'iframe PDF ne fonctionne pas sur Safari iPhone/iPad
-        const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
-        const wrap=pdfModal.querySelector(".pdf-wrap");
-        if(isIOS){
-          wrap.innerHTML=`<div class="pdf-ios-msg" style="display:block">
-            <p>Sur iPhone et iPad, les PDF ne s'affichent pas en modale.</p>
-            <p style="margin-top:.8rem"><a href="${PDF_SRC}" target="_blank">📄 Ouvrir le PDF dans un nouvel onglet</a></p>
-            <p style="margin-top:.4rem"><a href="${PDF_SRC}" download>⬇ Télécharger le PDF</a></p>
-          </div>`;
-        } else {
-          wrap.innerHTML=`<iframe id="pdfFrame" src="${PDF_SRC}" title="Présentation Agir pour Bessèges" allowfullscreen></iframe>`;
+      // ── CAROUSEL ──
+      function pad(n){return String(n).padStart(4,"0")}
+      function carSrc(n){return BASE+pad(n)+".jpg"}
+
+      function buildDots(){
+        const dots=$("#carDots");
+        dots.innerHTML="";
+        for(let i=1;i<=TOTAL;i++){
+          const d=document.createElement("button");
+          d.className="car-dot"+(i===1?" on":"");
+          d.setAttribute("aria-label","Page "+i);
+          d.dataset.slide=i;
+          dots.appendChild(d);
         }
+      }
+
+      function goTo(n,instant){
+        n=Math.max(1,Math.min(TOTAL,n));
+        curSlide=n;
+        const img=$("#carImg");
+        const count=$("#slideCount");
+        const prev=$("#carPrev");
+        const next=$("#carNext");
+        if(instant){
+          img.src=carSrc(n);
+        } else {
+          img.classList.add("fade");
+          setTimeout(()=>{img.src=carSrc(n);img.classList.remove("fade");},150);
+        }
+        if(count) count.textContent=n+" / "+TOTAL;
+        if(prev) prev.disabled=(n===1);
+        if(next) next.disabled=(n===TOTAL);
+        pdfModal.querySelectorAll(".car-dot").forEach((d,i)=>d.classList.toggle("on",i+1===n));
+      }
+
+      function openPdf(){
+        buildDots();
+        goTo(1,true);
+        // Précharge les 3 premières images
+        for(let i=2;i<=Math.min(3,TOTAL);i++){const p=new Image();p.src=carSrc(i);}
         open(pdfModal);
       }
+
+      // Navigation clavier dans le carousel
+      pdfModal.addEventListener("keydown",(e)=>{
+        if(!pdfModal.classList.contains("open")) return;
+        if(e.key==="ArrowRight"||e.key==="ArrowDown"){e.preventDefault();goTo(curSlide+1);}
+        if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();goTo(curSlide-1);}
+      });
+
+      // Swipe tactile
+      let tx=0;
+      pdfModal.addEventListener("touchstart",(e)=>{tx=e.touches[0].clientX;},{passive:true});
+      pdfModal.addEventListener("touchend",(e)=>{
+        const dx=e.changedTouches[0].clientX-tx;
+        if(Math.abs(dx)>40) goTo(dx<0?curSlide+1:curSlide-1);
+      },{passive:true});
+
+      // Boutons prev/next et dots (délégation)
+      pdfModal.addEventListener("click",(e)=>{
+        if(e.target.id==="carPrev") return goTo(curSlide-1);
+        if(e.target.id==="carNext") return goTo(curSlide+1);
+        const dot=e.target.closest(".car-dot"); if(dot) return goTo(+dot.dataset.slide);
+      });
+
 
       root.addEventListener("click",(e)=>{
         if(e.target.closest("[data-close]")||e.target===candModal||e.target===progModal||e.target===teamModal||e.target===pdfModal) return closeAll();
@@ -590,17 +652,4 @@
         a.addEventListener("click",(e)=>{
           const href=a.getAttribute("href"); if(!href||href==="#") return;
           const el=$(href); if(!el) return;
-          e.preventDefault();
-          window.scrollTo({top:el.getBoundingClientRect().top+pageYOffset-64,behavior:"smooth"});
-        });
-      });
-    };
-
-    if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", init);
-    else init();
-  })();
-  </script>
-</div>
-
-</body>
-</html>
+          e.pre
